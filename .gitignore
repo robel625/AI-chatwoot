@@ -108,3 +108,4 @@ Procfile.worktree
 
 # Cache that `rake ruby_llm:refresh_models` writes next to the model registry
 config/llm_models.json.published.json
+.worktrees/eeu-ai-gateway/services/eeu-ai/.venv
