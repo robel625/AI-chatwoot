@@ -301,7 +301,12 @@
             "CASUAL": "Casual",
             "STRAIGHTFORWARD": "Straightforward",
             "CONFIDENT": "Confident",
-            "FRIENDLY": "Friendly"
+            "FRIENDLY": "Friendly",
+            "FORMAL_AMHARIC": "Formal Amharic (አክብሮት)",
+            "POLITE_OROMOO": "Polite Afaan Oromoo",
+            "POLITE_TIGRINYA": "Polite Tigrinya (ትግርኛ)",
+            "TECHNICAL_CLARITY": "Technical Clarity (Plain Utility)",
+            "EMPATHETIC_DEESCALATION": "Empathetic De-escalation"
           }
         },
         "GRAMMAR": "Fix grammar & spelling",

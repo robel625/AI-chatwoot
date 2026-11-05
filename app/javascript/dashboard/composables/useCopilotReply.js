@@ -20,6 +20,11 @@ const REWRITE_ACTIONS = [
   'make_friendly',
   'make_formal',
   'simplify',
+  'formal_amharic',
+  'polite_oromoo',
+  'polite_tigrinya',
+  'technical_clarity',
+  'empathetic_deescalation',
 ];
 
 /**

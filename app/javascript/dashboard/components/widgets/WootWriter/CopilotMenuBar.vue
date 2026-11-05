@@ -103,6 +103,36 @@ const menuItems = computed(() => {
             ),
             key: 'friendly',
           },
+          {
+            label: t(
+              'INTEGRATION_SETTINGS.OPEN_AI.REPLY_OPTIONS.CHANGE_TONE.OPTIONS.FORMAL_AMHARIC'
+            ),
+            key: 'formal_amharic',
+          },
+          {
+            label: t(
+              'INTEGRATION_SETTINGS.OPEN_AI.REPLY_OPTIONS.CHANGE_TONE.OPTIONS.POLITE_OROMOO'
+            ),
+            key: 'polite_oromoo',
+          },
+          {
+            label: t(
+              'INTEGRATION_SETTINGS.OPEN_AI.REPLY_OPTIONS.CHANGE_TONE.OPTIONS.POLITE_TIGRINYA'
+            ),
+            key: 'polite_tigrinya',
+          },
+          {
+            label: t(
+              'INTEGRATION_SETTINGS.OPEN_AI.REPLY_OPTIONS.CHANGE_TONE.OPTIONS.TECHNICAL_CLARITY'
+            ),
+            key: 'technical_clarity',
+          },
+          {
+            label: t(
+              'INTEGRATION_SETTINGS.OPEN_AI.REPLY_OPTIONS.CHANGE_TONE.OPTIONS.EMPATHETIC_DEESCALATION'
+            ),
+            key: 'empathetic_deescalation',
+          },
         ],
       },
       {

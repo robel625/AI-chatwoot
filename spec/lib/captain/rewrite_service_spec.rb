@@ -143,6 +143,36 @@ RSpec.describe Captain::RewriteService do
     end
   end
 
+  describe 'EEU cultural and utility tone rewrite methods' do
+    let(:operation) { 'formal_amharic' }
+
+    it 'calls EEU gateway when reachable' do
+      expect(service).to receive(:call_eeu_gateway).with('http://127.0.0.1:4000', 'formal_amharic').and_return({ message: 'ክቡር ደንበኛ' })
+      result = service.perform
+      expect(result[:message]).to eq('ክቡር ደንበኛ')
+    end
+
+    it 'falls back to LLM prompt when gateway is unavailable' do
+      expect(service).to receive(:call_eeu_gateway).and_return(nil)
+      expect(service).to receive(:call_llm_with_prompt).and_return({ message: 'Fallback formal text' })
+      result = service.perform
+      expect(result[:message]).to eq('Fallback formal text')
+    end
+
+    it 'supports all 5 EEU tone operations' do
+      described_class::EEU_OPERATIONS.each do |eeu_tone|
+        eeu_service = described_class.new(
+          account: account,
+          content: content,
+          operation: eeu_tone.to_s,
+          conversation_display_id: conversation.display_id
+        )
+        expect(eeu_service).to receive(:call_eeu_gateway).and_return({ message: "Rewritten in #{eeu_tone}" })
+        expect(eeu_service.perform[:message]).to eq("Rewritten in #{eeu_tone}")
+      end
+    end
+  end
+
   describe '#perform with invalid operation' do
     it 'raises ArgumentError for unknown operation' do
       invalid_service = described_class.new(
