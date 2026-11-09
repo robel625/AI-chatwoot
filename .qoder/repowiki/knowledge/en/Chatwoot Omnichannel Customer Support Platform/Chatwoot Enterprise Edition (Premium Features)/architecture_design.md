@@ -1,0 +1,9 @@
+The module is a self-contained Rails engine mounted under the `Enterprise` namespace. It mirrors the host app's MVC layout (`app/{controllers,models,services,jobs,builders,finders,policies,mailers,views}`) so that EE features plug into existing routes and resource conventions without forking core code.
+
+- Entry points: `TasksRailtie` loads rake tasks from `lib/tasks/**/*.rake`; `config/premium_features.yml` enumerates feature flags consumed by the core to gate access; `config/initializers/omniauth_saml.rb` wires SAML via Devise.
+- Controllers are split across three namespaces: `enterprise::api::v1|v2` (REST API), `api/v1/accounts/*` (account-scoped admin endpoints such as SLA, audit logs, custom roles, SAML settings, WhatsApp calls), and `twilio/voice_controller` plus `concerns/twilio_*` for inbound/outbound voice webhooks.
+- Domain logic lives in `services/`, organized by feature area (`captain/`, `conversation_monitors/`, `enterprise/billing|whatsapp|auto_assignment|macros|message_templates`, `voice/provider/twilio`, `llm/`, `onboarding/`, `device_verification/`, `saml/`, `sla/`).
+- Background work is dispatched through `dispatchers/enterprise/{async,sync}_dispatcher.rb` and implemented as per-feature job trees under `jobs/` (e.g. `jobs/captain/copilot/*`, `jobs/sla/*`, `jobs/voice/*`, `jobs/enterprise/billing/*`).
+- Models extend or wrap core models via `models/concerns/enterprise/*` (e.g. `Account`, `Conversation`, `Message`, `Inbox`) rather than subclassing them, keeping the core untouched.
+- Feature gating is centralized: `fields/account_features_field.rb`, `manually_managed_features_field.rb`, and `captain_model_overrides_field.rb` expose account-level feature toggles persisted on the Account model.
+- Views use JBuilder JSON templates under `views/api/v1/models/` and ERB/Liquid mailer views under `views/enterprise/` and `views/captain/`.

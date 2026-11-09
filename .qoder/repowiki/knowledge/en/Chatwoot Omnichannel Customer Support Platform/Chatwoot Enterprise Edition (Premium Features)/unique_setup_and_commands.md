@@ -1,0 +1,1 @@
+Rake tasks are auto-loaded at boot via `TasksRailtie` from `enterprise/lib/tasks/**/*.rake`; premium features are declared in `config/premium_features.yml` and must be enabled on the account for the corresponding controllers/services to activate.

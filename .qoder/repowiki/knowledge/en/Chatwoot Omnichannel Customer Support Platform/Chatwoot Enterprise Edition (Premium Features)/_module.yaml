@@ -1,0 +1,11 @@
+schema_version: 1
+module_path: enterprise_edition
+title: Chatwoot Enterprise Edition (Premium Features)
+scope:
+    - enterprise/
+source_files: []
+depends_on: []
+related_to:
+    - path: rails_backend/accounts_users_teams
+    - path: rails_backend/campaigns_csat
+    - path: rails_backend/notifications_messages

@@ -1,0 +1,402 @@
+# 知识卡导出索引文件
+schema_version: 1
+locale: en-US
+branch: main
+nodes_managed: true
+exported_at: "2026-11-05T16:16:20Z"
+modules:
+    "":
+        dir_name: Chatwoot Omnichannel Customer Support Platform
+        title: Chatwoot Omnichannel Customer Support Platform
+        scope:
+            - README.md
+            - CONTRIBUTING.md
+            - CODE_OF_CONDUCT.md
+            - SECURITY.md
+            - AGENTS.md
+            - Gemfile
+            - Gemfile.lock
+            - package.json
+            - pnpm-lock.yaml
+            - Makefile
+            - Rakefile
+            - Procfile
+            - Procfile.dev
+            - Procfile.test
+            - Procfile.tunnel
+            - config.ru
+            - app.json
+            - crowdin.yml
+            - .gitignore
+            - .eslintrc.js
+            - .prettierrc
+            - .rubocop.yml
+            - .rspec
+            - start-chatwoot.cmd
+            - start-chatwoot.ps1
+            - .all-contributorsrc
+            - .annotaterb.yml
+            - .browserslistrc
+            - .bundler-audit.yml
+            - .dockerignore
+            - .editorconfig
+            - .env.example
+            - .nvmrc
+            - .ruby-version
+            - .scss-lint.yml
+            - .slugignore
+        source_files: []
+        children:
+            - api_docs
+            - enterprise_edition
+            - infrastructure_and_deploy
+            - rails_backend
+            - scripts_and_tooling
+            - tests
+        depends_on: []
+        related_to: []
+    api_docs:
+        dir_name: OpenAPI 3.1 API Documentation
+        title: OpenAPI 3.1 API Documentation
+        scope:
+            - swagger/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: rails_backend/api_controllers/base_and_health
+    enterprise_edition:
+        dir_name: Chatwoot Enterprise Edition (Premium Features)
+        title: Chatwoot Enterprise Edition (Premium Features)
+        scope:
+            - enterprise/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: rails_backend/accounts_users_teams
+            - path: rails_backend/campaigns_csat
+            - path: rails_backend/notifications_messages
+    infrastructure_and_deploy:
+        dir_name: Infrastructure, Deployment & CI_CD
+        title: Infrastructure, Deployment & CI/CD
+        scope:
+            - docker/
+            - deployment/
+            - .circleci/
+            - .devcontainer/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    rails_backend:
+        dir_name: Chatwoot Rails Backend
+        title: Chatwoot Rails Backend
+        scope:
+            - app/
+            - config/
+            - db/
+        source_files: []
+        children:
+            - rails_backend/accounts_users_teams
+            - rails_backend/api_controllers
+            - rails_backend/auth_devise
+            - rails_backend/auto_assignment_capacity
+            - rails_backend/automation_rules
+            - rails_backend/campaigns_csat
+            - rails_backend/data_imports
+            - rails_backend/knowledge_base_portal
+            - rails_backend/notifications_messages
+            - rails_backend/rails_config_locales
+            - rails_backend/reporting_analytics
+            - rails_backend/super_admin_platform
+        depends_on: []
+        related_to: []
+    rails_backend/accounts_users_teams:
+        dir_name: Account, User & Conversation Domain Models
+        title: Account, User & Conversation Domain Models
+        scope:
+            - app/models/account.rb
+            - app/models/user.rb
+            - app/models/team.rb
+            - app/models/company.rb
+            - app/models/contact.rb
+            - app/models/conversation.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: enterprise_edition
+    rails_backend/api_controllers:
+        dir_name: Rails API & Public Web Controllers
+        title: Rails API & Public Web Controllers
+        scope:
+            - app/controllers/platform_controller.rb
+            - app/controllers/public_controller.rb
+            - app/controllers/widget_tests_controller.rb
+            - app/controllers/widgets_controller.rb
+            - app/controllers/slack_uploads_controller.rb
+            - app/controllers/swagger_controller.rb
+            - app/controllers/health_controller.rb
+            - app/controllers/dashboard_controller.rb
+            - app/controllers/oauth_callback_controller.rb
+            - app/controllers/android_app_controller.rb
+            - app/controllers/apple_app_controller.rb
+            - app/controllers/robots_controller.rb
+            - app/controllers/application_controller.rb
+            - app/controllers/api_controller.rb
+        source_files: []
+        children:
+            - rails_backend/api_controllers/base_and_health
+            - rails_backend/api_controllers/dashboard_and_web
+            - rails_backend/api_controllers/public_widget_api
+        depends_on: []
+        related_to: []
+    rails_backend/api_controllers/base_and_health:
+        dir_name: Base API Controller & Health_Docs Endpoints
+        title: Base API Controller & Health/Docs Endpoints
+        scope:
+            - app/controllers/application_controller.rb
+            - app/controllers/api_controller.rb
+            - app/controllers/health_controller.rb
+            - app/controllers/swagger_controller.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: api_docs
+    rails_backend/api_controllers/dashboard_and_web:
+        dir_name: Dashboard SPA Entry & Public App Metadata Endpoints
+        title: Dashboard SPA Entry & Public App Metadata Endpoints
+        scope:
+            - app/controllers/dashboard_controller.rb
+            - app/controllers/android_app_controller.rb
+            - app/controllers/apple_app_controller.rb
+            - app/controllers/robots_controller.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: rails_backend/knowledge_base_portal
+    rails_backend/api_controllers/public_widget_api:
+        dir_name: Public Widget & Slack Upload Endpoints
+        title: Public Widget & Slack Upload Endpoints
+        scope:
+            - app/controllers/public_controller.rb
+            - app/controllers/widgets_controller.rb
+            - app/controllers/widget_tests_controller.rb
+            - app/controllers/slack_uploads_controller.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    rails_backend/auth_devise:
+        dir_name: Controller Concerns for Auth, Account & Conversation Scoping
+        title: Controller Concerns for Auth, Account & Conversation Scoping
+        scope:
+            - app/controllers/concerns/device_verification_guard.rb
+            - app/controllers/concerns/access_token_auth_helper.rb
+            - app/controllers/concerns/ensure_current_account_helper.rb
+            - app/controllers/concerns/google_concern.rb
+            - app/controllers/concerns/domain_helper.rb
+            - app/controllers/concerns/conversation_assignment_targets_concern.rb
+            - app/controllers/concerns/conversation_custom_attributes_concern.rb
+            - app/controllers/concerns/attachment_concern.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    rails_backend/auto_assignment_capacity:
+        dir_name: Auto-Assignment & Bot Inbox Models
+        title: Auto-Assignment & Bot Inbox Models
+        scope:
+            - app/models/assignment_policy.rb
+            - app/models/inbox_assignment_policy.rb
+            - app/models/team_member.rb
+            - app/models/agent_bot.rb
+            - app/models/agent_bot_inbox.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    rails_backend/automation_rules:
+        dir_name: Automation Rules Engine
+        title: Automation Rules Engine
+        scope:
+            - app/models/automation_rule.rb
+            - app/models/automation_rule_pending_execution.rb
+            - app/listeners/automation_rule_listener.rb
+            - app/policies/automation_rule_policy.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: rails_backend/notifications_messages
+    rails_backend/campaigns_csat:
+        dir_name: CSAT Survey & Campaign Messaging
+        title: CSAT Survey & Campaign Messaging
+        scope:
+            - app/models/campaign.rb
+            - app/models/csat_survey_response.rb
+            - app/services/csat_survey_service.rb
+            - app/services/csat_template_management_service.rb
+            - app/services/csat_template_name_service.rb
+            - app/services/csat_template_utility_analysis_service.rb
+            - app/services/csat_template_utility_rubric.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: enterprise_edition
+    rails_backend/data_imports:
+        dir_name: Data Import Orchestration & Error Tracking
+        title: Data Import Orchestration & Error Tracking
+        scope:
+            - app/models/data_import.rb
+            - app/models/data_import_error.rb
+            - app/models/data_import_item.rb
+            - app/models/data_import_mapping.rb
+            - app/finders/data_import_error_finder.rb
+            - app/finders/data_import_skip_log_finder.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    rails_backend/knowledge_base_portal:
+        dir_name: Knowledge Base Portal & Account Configuration Models
+        title: Knowledge Base Portal & Account Configuration Models
+        scope:
+            - app/models/article.rb
+            - app/models/category.rb
+            - app/models/kbase.rb
+            - app/models/related_category.rb
+            - app/models/portal.rb
+            - app/models/folder.rb
+            - app/models/dashboard_app.rb
+            - app/models/custom_attribute_definition.rb
+            - app/models/custom_filter.rb
+            - app/models/canned_response.rb
+            - app/models/macro.rb
+            - app/models/label.rb
+            - app/models/installation_config.rb
+            - app/models/working_hour.rb
+            - app/models/assignment_policy.rb
+            - app/models/inbox_assignment_policy.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: rails_backend/api_controllers/dashboard_and_web
+    rails_backend/notifications_messages:
+        dir_name: Notifications & Messaging Core
+        title: Notifications & Messaging Core
+        scope:
+            - app/models/notification.rb
+            - app/models/notification_setting.rb
+            - app/models/notification_subscription.rb
+            - app/models/message.rb
+            - app/models/note.rb
+            - app/models/mention.rb
+            - app/models/attachment.rb
+            - app/builders/notification_builder.rb
+            - app/jobs/conversation_reply_email_job.rb
+            - app/jobs/send_reply_job.rb
+            - app/jobs/hook_job.rb
+            - app/jobs/event_dispatcher_job.rb
+            - app/listeners/notification_listener.rb
+        source_files: []
+        children:
+            - rails_backend/notifications_messages/messaging
+            - rails_backend/notifications_messages/notifications
+        depends_on: []
+        related_to:
+            - path: enterprise_edition
+            - path: rails_backend/automation_rules
+    rails_backend/notifications_messages/messaging:
+        dir_name: Message, Note & Attachment Domain Models with Outbound Messaging Jobs
+        title: Message, Note & Attachment Domain Models with Outbound Messaging Jobs
+        scope:
+            - app/models/message.rb
+            - app/models/note.rb
+            - app/models/mention.rb
+            - app/models/attachment.rb
+            - app/jobs/send_reply_job.rb
+            - app/jobs/hook_job.rb
+            - app/jobs/event_dispatcher_job.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    rails_backend/notifications_messages/notifications:
+        dir_name: Notification Delivery & Subscription System
+        title: Notification Delivery & Subscription System
+        scope:
+            - app/models/notification.rb
+            - app/models/notification_setting.rb
+            - app/models/notification_subscription.rb
+            - app/builders/notification_builder.rb
+            - app/listeners/notification_listener.rb
+            - app/jobs/conversation_reply_email_job.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    rails_backend/rails_config_locales:
+        dir_name: Rails Application Configuration & Database Schema
+        title: Rails Application Configuration & Database Schema
+        scope:
+            - config/
+            - db/schema.rb
+            - db/seeds.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: tests
+    rails_backend/reporting_analytics:
+        dir_name: Reporting Events & Analytics Helpers
+        title: Reporting Events & Analytics Helpers
+        scope:
+            - app/models/reporting_event.rb
+            - app/models/reporting_events_rollup.rb
+            - app/helpers/report_helper.rb
+            - app/helpers/reporting_event_helper.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    rails_backend/super_admin_platform:
+        dir_name: Super Admin & Platform App Domain Models
+        title: Super Admin & Platform App Domain Models
+        scope:
+            - app/models/super_admin.rb
+            - app/models/platform_app.rb
+            - app/models/platform_app_permissible.rb
+            - app/models/platform_banner.rb
+            - app/models/access_token.rb
+            - app/models/user_session.rb
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    scripts_and_tooling:
+        dir_name: Operational Scripts, RuboCop Cops & Theme Assets
+        title: Operational Scripts, RuboCop Cops & Theme Assets
+        scope:
+            - script/
+            - rubocop/
+            - theme/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    tests:
+        dir_name: RSpec Test Suite & Test Infrastructure
+        title: RSpec Test Suite & Test Infrastructure
+        scope:
+            - spec/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: rails_backend/rails_config_locales

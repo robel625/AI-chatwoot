@@ -1,0 +1,5 @@
+- Feature-specific code is namespaced under `enterprise::` (controllers, services, jobs, models) to avoid polluting the core namespace.
+- Domain behavior is extracted into single-responsibility service classes under `app/services/<feature>/` rather than being placed in controllers or models.
+- Long-running operations are offloaded to Active Job classes grouped by feature under `app/jobs/<feature>/` and enqueued through the local async/sync dispatchers.
+- Core model extensions are implemented as concerns under `app/models/concerns/enterprise/` and included into base models instead of subclassing them.
+- API responses are serialized with JBuilder partials located under `app/views/api/v1/models/` matching the controller resource names.
