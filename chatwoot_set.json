@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "accountId": "1",
+  "token": "3Rd8TAWHkoQBiLEfpSEi3YWx",
+  "url": "http://rails:3000",
+  "nameInbox": "EEU WhatsApp Support",
+  "signMsg": false,
+  "reopenConversation": true,
+  "conversationPending": false,
+  "importContacts": true,
+  "importMessages": true,
+  "daysLimitImportMessages": 60
+}

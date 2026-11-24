@@ -1,0 +1,14 @@
+{
+  "instanceName": "eeu-whatsapp-support",
+  "token": "eeu_instance_token_2026",
+  "qrcode": true,
+  "integration": "WHATSAPP-BAILEYS",
+  "chatwootAccountId": "1",
+  "chatwootToken": "3Rd8TAWHkoQBiLEfpSEi3YWx",
+  "chatwootUrl": "http://rails:3000",
+  "chatwootSignMsg": false,
+  "chatwootReopenConversation": true,
+  "chatwootConversationPending": false,
+  "chatwootImportContacts": true,
+  "chatwootNameInbox": "EEU WhatsApp Support"
+}

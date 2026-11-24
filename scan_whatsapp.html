@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EEU WhatsApp Connection QR</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      max-width: 440px;
+      width: 100%;
+    }
+    h2 {
+      margin-top: 0;
+      color: #111b21;
+    }
+    p {
+      color: #54656f;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .qr-container {
+      margin: 20px 0;
+      background: #ffffff;
+      padding: 10px;
+      border: 1px solid #e9edef;
+      border-radius: 12px;
+      display: inline-block;
+    }
+    img {
+      display: block;
+      width: 280px;
+      height: 280px;
+      object-fit: contain;
+    }
+    .status {
+      margin-top: 15px;
+      font-weight: 600;
+      color: #00a884;
+    }
+    .instructions {
+      text-align: left;
+      background: #f8f9fa;
+      padding: 14px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #3b4a54;
+      margin-top: 20px;
+    }
+    ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Scan WhatsApp QR Code</h2>
+    <p>Link your WhatsApp account to Chatwoot (<strong>EEU WhatsApp Support</strong>)</p>
+    
+    <div class="qr-container">
+      <img id="qr-img" src="" alt="Loading QR code..." />
+    </div>
+
+    <div id="status-text" class="status">Fetching latest QR code...</div>
+
+    <div class="instructions">
+      <strong>Instructions:</strong>
+      <ol>
+        <li>Open WhatsApp on your phone</li>
+        <li>Tap <b>Menu (⋮)</b> or <b>Settings</b> &gt; <b>Linked Devices</b></li>
+        <li>Tap <b>Link a Device</b></li>
+        <li>Point your phone camera to this screen</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    async function refreshQR() {
+      try {
+        const res = await fetch("http://localhost:8080/instance/connect/eeu-whatsapp-support", {
+          headers: { "apikey": "eeu_evolution_secret_key_2026" }
+        });
+        const data = await res.json();
+        if (data.base64) {
+          document.getElementById("qr-img").src = data.base64;
+          document.getElementById("status-text").innerText = "Waiting for scan...";
+          document.getElementById("status-text").style.color = "#00a884";
+        } else if (data.status === "open" || data.state === "open") {
+          document.getElementById("status-text").innerText = "Connected successfully!";
+          document.getElementById("status-text").style.color = "#25D366";
+        }
+      } catch (err) {
+        document.getElementById("status-text").innerText = "Error refreshing QR code";
+        document.getElementById("status-text").style.color = "#d9534f";
+      }
+    }
+
+    refreshQR();
+    setInterval(refreshQR, 5000);
+  </script>
+</body>
+</html>
+
